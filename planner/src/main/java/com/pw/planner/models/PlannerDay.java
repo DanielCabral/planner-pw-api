@@ -31,18 +31,11 @@ public class PlannerDay {
     public PlannerDay() {
     }
 
-    public Planner getPlanner() {
-        return planner;
-    }
-
-    public void setPlanner(Planner planner) {
-        this.planner = planner;
-    }
-
-    public PlannerDay(long id, LocalDate day, Content content) {
+    public PlannerDay(long id, LocalDate day, Content content, Planner planner) {
         this.id = id;
         this.day = day;
         this.content = content;
+        this.planner = planner;
     }
 
     public long getId() {
@@ -69,6 +62,14 @@ public class PlannerDay {
         this.content = content;
     }
 
+    public Planner getPlanner() {
+        return this.planner;
+    }
+
+    public void setPlanner(Planner planner) {
+        this.planner = planner;
+    }
+
     public PlannerDay id(long id) {
         setId(id);
         return this;
@@ -81,6 +82,11 @@ public class PlannerDay {
 
     public PlannerDay content(Content content) {
         setContent(content);
+        return this;
+    }
+
+    public PlannerDay planner(Planner planner) {
+        setPlanner(planner);
         return this;
     }
 }

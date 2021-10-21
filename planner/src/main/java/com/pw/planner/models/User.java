@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -32,7 +32,7 @@ public class User {
     }
 
     public User(long id, String name, String email, String password, String cpf, String phone, LocalDate bornDate,
-            String gender, String userType) {
+            String gender, String userType, List<Planner> planners) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -42,6 +42,7 @@ public class User {
         this.bornDate = bornDate;
         this.gender = gender;
         this.userType = userType;
+        this.planners = planners;
     }
 
     public long getId() {
@@ -116,6 +117,14 @@ public class User {
         this.userType = userType;
     }
 
+    public List<Planner> getPlanners() {
+        return this.planners;
+    }
+
+    public void setPlanners(List<Planner> planners) {
+        this.planners = planners;
+    }
+
     public User id(long id) {
         setId(id);
         return this;
@@ -158,6 +167,11 @@ public class User {
 
     public User userType(String userType) {
         setUserType(userType);
+        return this;
+    }
+
+    public User planners(List<Planner> planners) {
+        setPlanners(planners);
         return this;
     }
 }

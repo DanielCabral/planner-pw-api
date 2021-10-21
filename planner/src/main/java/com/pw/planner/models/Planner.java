@@ -19,6 +19,7 @@ public class Planner {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
+
     private String cicle;
 
     @OneToOne
@@ -38,22 +39,15 @@ public class Planner {
     public Planner() {
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public Planner(long id, String cicle, Content layout, LocalDate startDate, LocalDate endDate,
-            List<PlannerDay> plannerDays) {
+            List<PlannerDay> plannerDays, User user) {
         this.id = id;
         this.cicle = cicle;
         this.layout = layout;
         this.startDate = startDate;
         this.endDate = endDate;
         this.plannerDays = plannerDays;
+        this.user = user;
     }
 
     public long getId() {
@@ -104,6 +98,14 @@ public class Planner {
         this.plannerDays = plannerDays;
     }
 
+    public User getUser() {
+        return this.user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public Planner id(long id) {
         setId(id);
         return this;
@@ -131,6 +133,11 @@ public class Planner {
 
     public Planner plannerDays(List<PlannerDay> plannerDays) {
         setPlannerDays(plannerDays);
+        return this;
+    }
+
+    public Planner user(User user) {
+        setUser(user);
         return this;
     }
 }
