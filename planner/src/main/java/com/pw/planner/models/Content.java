@@ -12,10 +12,19 @@ public class Content {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
+    private String name;
     private String contentJson;
     private boolean isLayout;
 
     public Content() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Content(long id, String contentJson, boolean isLayout) {

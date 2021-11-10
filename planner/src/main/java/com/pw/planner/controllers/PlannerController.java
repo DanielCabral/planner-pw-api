@@ -33,7 +33,6 @@ public class PlannerController {
 
     @PostMapping(value = "/update")
     public ResponseEntity<Planner> update(Planner planner) throws Exception {
-        planner.setId(0);
         if (planner.getId() != 0) {
             var result = plannerService.save(planner);
             return ResponseEntity.ok(result);
