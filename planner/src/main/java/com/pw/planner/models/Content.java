@@ -1,5 +1,6 @@
 package com.pw.planner.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +14,7 @@ public class Content {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     private String name;
+    @Column(length = 2048)
     private String contentJson;
     private boolean isLayout;
 
